@@ -15,6 +15,7 @@
   "homepage": "",
   "dependencies": {
     "concurrently": "^6.0.0",
+    "dotenv": "^14.3.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.6.2"
