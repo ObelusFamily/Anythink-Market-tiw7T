@@ -1,5 +1,7 @@
 # Welcome to the Anythink Market repo
-
+1. run `mpm i` in the root directory
+2. run `npm i` in the frontend directory
+2. run `npm i` in the backend directory 
 To start the app use: `yarn start`, it'll start both the backend and the frontend.
 
 Please find more info about each part in the relevant Readme file ([frontend](frontend/readme.md) and [backend](backend/README.md)).
