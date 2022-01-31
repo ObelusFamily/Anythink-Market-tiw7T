@@ -5,29 +5,26 @@ require('../models/Item')
 var User = mongoose.model("User");
 var Item = mongoose.model("Item");
 
-function seeds() {
-    const user = new User();
-    user.username = 'seeduser'
-    user.email = 'seeduser@gmail.com'
-    user.setPassword('fakePassword');
-
-    user
-        .save()
-        .then(function () {
-            for (let i = 0; i < 30; i++) {
-                var item = new Item({
-                    slug: `seed-item-mock${i}`,
-                    title: `seed-item-mock-${i}`
-                });
-                item.seller = user;
-                item.save().then(function () {
-                    console.log('done')
-                }).catch(e => console.log(e));
-            }
-
-
-        })
-        .catch((e) => console.log(e));
-
+async function seeds() {
+    try{
+        for (let i = 0;i < 200; i++) {
+            const user = new User();
+            user.username = `kobyDamariSeedingDb${i}`
+            user.email = `kobyDamariSeedingDb${i}@gmail.com`
+            user.setPassword('fakePassword');
+            await user.save();
+            console.log('user created')
+            var item = new Item({
+                slug: `gucci--${i}`,
+                title: `gucchip-${i}`
+            });
+            item.seller = user;
+            await item.save()
+        }
+        console.log('finished creating records')
+    }catch (e){
+        console.log(e)
+    }
+return;
 };
-seeds();
+seeds().then(()=>process.exit(0));
