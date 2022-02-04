@@ -1,3 +1,4 @@
 #!/bin/sh
-
-yarn seeds
+echo 'start seeding'
+node  ./scripts/seeds.js
+echo 'done seeding'
